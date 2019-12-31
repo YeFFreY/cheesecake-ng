@@ -72,6 +72,9 @@
             "browserTarget": "cheesecake-ng:build"
           },
           "configurations": {
+            "proxy-api": {
+              "proxyConfig": "proxy-api.conf.json"
+            },
             "production": {
               "browserTarget": "cheesecake-ng:build:production"
             }
