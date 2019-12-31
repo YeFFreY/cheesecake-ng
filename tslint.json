@@ -1,6 +1,10 @@
 {
   "extends": "tslint:recommended",
   "rules": {
+    "variable-name": {
+      "options": "allow-leading-underscore",
+      "severity": "error"
+    },
     "array-type": false,
     "arrow-parens": false,
     "deprecation": {
@@ -43,7 +47,7 @@
         ]
       }
     ],
-    "no-consecutive-blank-lines": false,
+    "no-consecutive-blank-lines": true,
     "no-console": [
       true,
       "debug",
@@ -60,6 +64,7 @@
     "no-non-null-assertion": true,
     "no-redundant-jsdoc": true,
     "no-switch-case-fall-through": true,
+    "no-use-before-declare": true,
     "no-var-requires": false,
     "object-literal-key-quotes": [
       true,
@@ -83,7 +88,21 @@
     "template-banana-in-box": true,
     "template-no-negated-async": true,
     "use-lifecycle-interface": true,
-    "use-pipe-transform-interface": true
+    "use-pipe-transform-interface": true,
+    "whitespace": [
+      true,
+      "check-branch",
+      "check-operator",
+      "check-decl",
+      "check-module",
+      "check-preblock",
+      "check-postbrace"
+    ],
+    "semicolon": [
+      true,
+      "always",
+      "ignore-bound-class-methods"
+    ]
   },
   "rulesDirectory": [
     "codelyzer"
