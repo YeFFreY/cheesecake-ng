@@ -13,5 +13,5 @@ export type ResourceId = number | string;
  */
 export interface Resource {
   id: ResourceId;
-  _links: { rel: string, href: string }[];
+  _links?: { rel: string, href: string }[];
 }

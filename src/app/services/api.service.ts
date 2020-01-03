@@ -82,6 +82,9 @@ export class ApiService {
    * @param resource The resource to get the links from
    */
   protected linksArrayToMap(resource: Resource) {
+    if (!resource._links) {
+      return {};
+    }
     return resource._links
       .reduce(
         (acc: { [rel: string]: string }, link) =>
