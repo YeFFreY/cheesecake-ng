@@ -1,16 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'chee-skills',
+  selector: 'chee-skill-list',
   template: `
     <div>
-      skills works!
-      <router-outlet></router-outlet>
+      <p>list</p>
     </div>
   `,
   styles: []
 })
-export class SkillsComponent implements OnInit {
+export class SkillListComponent implements OnInit {
 
   constructor() {
   }
