@@ -5,6 +5,7 @@ import { ActivatedRouteSnapshot } from '@angular/router';
 import { SkillOverview, SkillsService } from './skills.service';
 import * as faker from 'faker';
 import { of } from 'rxjs';
+import { Right } from 'purify-ts/Either';
 
 describe('SkillListResolverService', () => {
   const route = new ActivatedRouteSnapshot();
@@ -38,8 +39,19 @@ describe('SkillListResolverService', () => {
     skillsServiceSpy.fetchSkills.and.returnValue(of(expectedData));
 
     skillListResolverService.resolve(route, router).subscribe(value => {
-      expect(value).toEqual(expectedData);
+      expect(value).toEqual(Right(expectedData));
     });
   });
 
+  /*
+    fit('should returned the error given by the skillsService', () => {
+      const expectedData: DataServiceError = unavailableServiceError('rel1');
+      skillsServiceSpy.fetchSkills.and.;
+
+      skillListResolverService.resolve(route, router).subscribe(value => {
+        expect(value).toEqual(Left(expectedData));
+      });
+    });
+
+  */
 });

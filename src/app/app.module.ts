@@ -4,6 +4,8 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AppNavComponent } from './components/app-nav/app-nav.component';
+import { HttpClientModule } from '@angular/common/http';
+import { httpInterceptorProviders } from './interceptors';
 
 @NgModule({
   declarations: [
@@ -12,9 +14,12 @@ import { AppNavComponent } from './components/app-nav/app-nav.component';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+    httpInterceptorProviders
+  ],
+  bootstrap: [ AppComponent ]
 })
 export class AppModule { }

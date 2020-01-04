@@ -1,20 +1,19 @@
 import { Injectable } from '@angular/core';
-import { SkillsModule } from '../skills.module';
 import { ApiService } from '../../../../services/api.service';
 import { Observable } from 'rxjs';
 import { Resource } from '../../../../../lib/hateoas';
+import { SkillsLazyModule } from '../skills.lazy-module';
 
 export interface SkillOverview extends Resource {
   name: string;
 }
 
 @Injectable({
-  providedIn: SkillsModule
+  providedIn: SkillsLazyModule
 })
 export class SkillsService {
 
   constructor(private apiService: ApiService) {
-    console.log('Instantiated SkillsService');
   }
 
   public fetchSkills(): Observable<SkillOverview[]> {
