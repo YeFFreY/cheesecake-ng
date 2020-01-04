@@ -8,8 +8,8 @@ import { SkillOverview } from '../services/skills.service';
   selector: 'chee-skill-list',
   template: `
     <div>
-      <p>error: {{error?.friendlyMessage}}</p>
-      <p>skills: {{skills}}</p>
+      <p *ngIf="error">error: {{error?.friendlyMessage}}</p>
+      <p *ngIf="skills">skills: {{skills}}</p>
     </div>
   `,
   styles: []
@@ -18,14 +18,24 @@ export class SkillListComponent implements OnInit {
   public error: DataServiceError | null = null;
   public skills: SkillOverview[] | null = null;
 
+  private onDataRetrieved = (skills: SkillOverview[]) => {
+    this.skills = skills;
+    this.error = null;
+  };
+
+  private onError = (error: DataServiceError) => {
+    this.error = error;
+    this.skills = null;
+  };
+
   constructor(private route: ActivatedRoute) {
   }
 
   ngOnInit() {
     this.route.data.subscribe(({ resolvedData }: { resolvedData: Either<DataServiceError, SkillOverview[]> }) => {
       resolvedData
-        .ifLeft(error => this.error = error)
-        .ifRight(skills => this.skills = skills);
+        .ifLeft(this.onError)
+        .ifRight(this.onDataRetrieved);
     });
   }
 
