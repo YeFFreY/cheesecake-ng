@@ -9,7 +9,11 @@ import { SkillOverview } from '../services/skills.service';
   template: `
     <div>
       <p *ngIf="error">error: {{error?.friendlyMessage}}</p>
-      <p *ngIf="skills">skills: {{skills}}</p>
+      <div *ngIf="skills">
+        <div *ngFor="let skill of skills" class="skill-item">
+          <h4>{{skill.name}}</h4>
+        </div>
+      </div>
     </div>
   `,
   styles: []
