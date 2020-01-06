@@ -6,6 +6,7 @@ import { Left, Right } from 'purify-ts/Either';
 import { unavailableServiceError } from '../../../../../lib/services.utils';
 import { SkillOverview } from '../services/skills.service';
 import * as faker from 'faker';
+import { Page } from '../../../../../testing/page.utils';
 
 const skills: SkillOverview[] = [
   { id: faker.random.number(), name: faker.name.title() },
@@ -14,13 +15,7 @@ const skills: SkillOverview[] = [
 ];
 const serviceError = unavailableServiceError('rel');
 
-class Page {
-  private fixture: ComponentFixture<SkillListComponent>;
-
-  constructor(fixture: ComponentFixture<SkillListComponent>) {
-    this.fixture = fixture;
-  }
-
+class SkillListPage extends Page<SkillListComponent> {
   get error() {
     return this.query<HTMLElement>('p');
   }
@@ -32,21 +27,12 @@ class Page {
   get skillNames() {
     return this.queryAll<HTMLElement>('.skill-item > h4');
   }
-
-  //// query helpers ////
-  private query<T>(selector: string): T {
-    return this.fixture.nativeElement.querySelector(selector);
-  }
-
-  private queryAll<T>(selector: string): T[] {
-    return this.fixture.nativeElement.querySelectorAll(selector);
-  }
 }
 
 describe('SkillListComponent', () => {
   let component: SkillListComponent;
   let fixture: ComponentFixture<SkillListComponent>;
-  let page: Page;
+  let page: SkillListPage;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -67,7 +53,7 @@ describe('SkillListComponent', () => {
     fixture = TestBed.createComponent(SkillListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
-    page = new Page(fixture);
+    page = new SkillListPage(fixture);
   };
 
   it('should create the component when the route data is a DataServiceError', () => {
