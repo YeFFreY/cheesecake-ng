@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { SkillFormService } from '../components/skill-form/skill-form.service';
 
 @Component({
   selector: 'chee-skill-create',
@@ -13,7 +12,7 @@ import { SkillFormService } from '../components/skill-form/skill-form.service';
 })
 export class SkillCreateComponent implements OnInit {
 
-  constructor(private formService: SkillFormService) {
+  constructor() {
   }
 
   ngOnInit() {
