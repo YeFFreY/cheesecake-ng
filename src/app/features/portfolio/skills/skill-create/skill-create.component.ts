@@ -1,17 +1,19 @@
 import { Component, OnInit } from '@angular/core';
+import { SkillFormService } from '../components/skill-form/skill-form.service';
 
 @Component({
   selector: 'chee-skill-create',
   template: `
-    <p>
-      skill-create works!
-    </p>
+    <div>
+      <h3>Create a new skill</h3>
+      <chee-skill-form></chee-skill-form>
+    </div>
   `,
   styles: []
 })
 export class SkillCreateComponent implements OnInit {
 
-  constructor() {
+  constructor(private formService: SkillFormService) {
   }
 
   ngOnInit() {
