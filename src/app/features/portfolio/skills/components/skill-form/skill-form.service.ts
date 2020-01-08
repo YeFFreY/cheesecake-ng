@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { SkillDetails } from '../../../../../domain/skill.model';
+import { SkillData } from '../../../../../domain/skill.model';
 
 export interface SkillForm {
   name: string;
@@ -23,7 +23,7 @@ export class SkillFormService {
     this.form.patchValue(data);
   }
 
-  to(): SkillDetails {
+  to(): SkillData {
     return {
       name: this.formValue.name,
       description: this.formValue.description

@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import * as urlTemplate from 'url-template';
-import { Resource } from '../../lib/hateoas';
 import { flatMap, map, shareReplay, switchMap, tap } from 'rxjs/operators';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of, throwError } from 'rxjs';
-import { unavailableServiceError } from '../../lib/services.utils';
+import { unavailableServiceError } from '@lib/services.utils';
+import { Resource } from '@lib/hateoas';
 
 @Injectable({
   providedIn: 'root'

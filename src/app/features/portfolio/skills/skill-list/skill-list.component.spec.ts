@@ -3,10 +3,10 @@ import { SkillListComponent } from './skill-list.component';
 import { ActivatedRoute } from '@angular/router';
 import { of } from 'rxjs';
 import { Left, Right } from 'purify-ts/Either';
-import { unavailableServiceError } from '../../../../../lib/services.utils';
+import { unavailableServiceError } from '@lib/services.utils';
 import { SkillOverview } from '../services/skills.service';
 import * as faker from 'faker';
-import { Page } from '../../../../../testing/page.utils';
+import { Page } from '@testing/page.utils';
 
 const skills: SkillOverview[] = [
   { id: faker.random.number(), name: faker.name.title() },

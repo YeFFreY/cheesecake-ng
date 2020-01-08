@@ -1,9 +1,9 @@
-import { Resource } from '../../lib/hateoas';
+import { Resource } from '@lib/hateoas';
 
-export interface SkillDetails {
+export interface SkillData {
   name: string;
   description: string;
 }
 
-export interface Skill extends Resource, SkillDetails {
+export interface Skill extends Resource, SkillData {
 }

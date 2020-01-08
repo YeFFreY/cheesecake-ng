@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { SkillFormService } from './skill-form.service';
 import { FormGroup } from '@angular/forms';
+import { SkillData } from '../../../../../domain/skill.model';
 
 @Component({
   selector: 'chee-skill-form',
@@ -19,6 +20,8 @@ import { FormGroup } from '@angular/forms';
 export class SkillFormComponent implements OnInit {
   form: FormGroup;
 
+  @Output() formSubmitted = new EventEmitter<SkillData>();
+
   constructor(private formService: SkillFormService) {
     this.form = this.formService.form;
   }
@@ -27,6 +30,6 @@ export class SkillFormComponent implements OnInit {
   }
 
   submit() {
-    console.log(this.formService.to());
+    this.formSubmitted.emit(this.formService.to());
   }
 }

@@ -1,9 +1,9 @@
 import { TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { ApiService } from './api.service';
-import { Resource } from '../../lib/hateoas';
+import { Resource } from '@lib/hateoas';
 import { HttpClient } from '@angular/common/http';
-import { DataServiceError } from '../../lib/services.utils';
+import { DataServiceError } from '@lib/services.utils';
 
 describe('ApiService', () => {
   let httpClient: HttpClient;
