@@ -1,5 +1,10 @@
 {
   "extends": "tslint:recommended",
+  "linterOptions": {
+    "exclude": [
+      "node_modules"
+    ]
+  },
   "rules": {
     "variable-name": {
       "options": "allow-leading-underscore",
@@ -66,6 +71,7 @@
     "no-switch-case-fall-through": true,
     "no-use-before-declare": true,
     "no-var-requires": false,
+    "object-literal-shorthand": true,
     "object-literal-key-quotes": [
       true,
       "as-needed"

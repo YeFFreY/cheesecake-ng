@@ -3,6 +3,7 @@ import { ApiService } from '../../../../services/api.service';
 import { Observable } from 'rxjs';
 import { Resource } from '../../../../../lib/hateoas';
 import { SkillsLazyModule } from '../skills.lazy-module';
+import { SkillData } from '../../../../domain/skill.model';
 
 export interface SkillOverview extends Resource {
   name: string;
@@ -17,6 +18,10 @@ export class SkillsService {
   }
 
   public fetchSkills(): Observable<SkillOverview[]> {
-    return this.apiService.get<SkillOverview[]>('rel');
+    return this.apiService.get<SkillOverview[]>('skills::index');
+  }
+
+  public createSkill(data: SkillData): Observable<void> {
+    return this.apiService.post('skills::store', data);
   }
 }

@@ -56,7 +56,7 @@ export const fromStatus = (status: number): errorTypes => {
  * @param errorResponse the http response to convert to a DataServiceError.
  */
 export const handleError = (errorResponse: HttpErrorResponse) => {
-  console.error('[Chee] handling error and converting it to DataServiceError');
+  console.error(`[Chee] handling error [${ errorResponse.status }] for url [${ errorResponse.url }] and converting it to DataServiceError`);
   let dataServiceError;
   if (errorResponse.error instanceof ErrorEvent) {
     // A client side or network error occured.

@@ -30,6 +30,10 @@ export class SkillFormComponent implements OnInit {
   }
 
   submit() {
-    this.formSubmitted.emit(this.formService.to());
+    if (this.form.valid) {
+      this.formSubmitted.emit(this.formService.to());
+    } else {
+      console.log('[Chee] invalid data to create skill, ignoring user submission');
+    }
   }
 }
