@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Either } from 'purify-ts/Either';
-import { DataServiceError } from '../../../../../lib/services.utils';
+import { DataResult, DataServiceError } from '../../../../../lib/services.utils';
 import { SkillOverview } from '../services/skills.service';
 
 @Component({
@@ -12,7 +11,7 @@ import { SkillOverview } from '../services/skills.service';
       <p *ngIf="error">error: {{error?.friendlyMessage}}</p>
       <div *ngIf="skills">
         <div *ngFor="let skill of skills" class="skill-item">
-          <h4>{{skill.name}}</h4>
+          <h4><a [routerLink]="[skill.id]">{{skill.name}}</a></h4>
         </div>
       </div>
     </div>
@@ -37,7 +36,7 @@ export class SkillListComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.route.data.subscribe(({ resolvedData }: { resolvedData: Either<DataServiceError, SkillOverview[]> }) => {
+    this.route.data.subscribe(({ resolvedData }: { resolvedData: DataResult<SkillOverview[]> }) => {
       resolvedData
         .ifLeft(this.onError)
         .ifRight(this.onDataRetrieved);

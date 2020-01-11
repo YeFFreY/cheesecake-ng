@@ -31,7 +31,6 @@ export class SkillCreateComponent implements OnInit {
   }
 
   create(skillData: SkillData) {
-    console.log('creating skill with ', skillData);
     this.skillsService.createSkill(skillData).subscribe(
       this.onSuccess,
       this.onError

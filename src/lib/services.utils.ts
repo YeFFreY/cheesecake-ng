@@ -10,6 +10,7 @@
 
 import { HttpErrorResponse } from '@angular/common/http';
 import { throwError } from 'rxjs';
+import { Either } from 'purify-ts/Either';
 
 /**
  * Union type describing possible error which can happen when calling a service.
@@ -32,6 +33,15 @@ export const unavailableServiceError = (serviceRel: string) => new DataServiceEr
   'ServiceUnavailable',
   'Service is not available',
   `The service [${ serviceRel }] was not found in the catalog of available services`);
+
+/**
+ * This is the error to use when, usually a resolver, is given an ID and requested to find the Resource and the ID has the wrong syntax
+ * @param id the given ID which is not a valid id
+ */
+export const invalidResourceIdError = (id: any) => new DataServiceError(
+  'Unexpected',
+  'Resource id is invalid',
+  `Given Resource ID was not a number: ${ id }`);
 
 /**
  * Converts the given HTTP status code to an errorTypes
@@ -76,3 +86,9 @@ export const handleError = (errorResponse: HttpErrorResponse) => {
 
   return throwError(dataServiceError);
 };
+
+/**
+ * Describes the possible outcome when resolving data : get the data or get an error.
+ * To be used with ObservableResult.
+ */
+export type DataResult<T> = Either<DataServiceError, T>;

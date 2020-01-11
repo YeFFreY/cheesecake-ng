@@ -3,9 +3,9 @@ import { SkillOverview, SkillsService } from './skills.service';
 import { ActivatedRouteSnapshot, Resolve, RouterStateSnapshot } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Either, Right } from 'purify-ts/Either';
-import { DataServiceError } from '../../../../../lib/services.utils';
+import { DataServiceError } from '@lib/services.utils';
 import { map } from 'rxjs/operators';
-import { mapErrorToLeft } from '../../../../../lib/operators.rxjs';
+import { mapErrorToLeft } from '@lib/operators.rxjs';
 import { SkillsLazyModule } from '../skills.lazy-module';
 
 @Injectable({
