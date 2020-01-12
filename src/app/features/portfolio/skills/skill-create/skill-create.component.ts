@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { SkillData } from '../../../../domain/skill.model';
+import { Skill, SkillData } from '../../../../domain/skill.model';
 import { SkillsService } from '../services/skills.service';
 import { DataServiceError } from '@lib/services.utils';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'chee-skill-create',
@@ -16,15 +17,16 @@ import { DataServiceError } from '@lib/services.utils';
 export class SkillCreateComponent implements OnInit {
   public error: DataServiceError | null = null;
 
-  private onSuccess = () => {
+  private onSubmitSuccess = (skill: Skill) => {
     this.error = null;
+    this.router.navigate([ `../${ skill.id }` ], { relativeTo: this.route });
   };
 
-  private onError = (error: DataServiceError) => {
+  private onSubmitError = (error: DataServiceError) => {
     this.error = error;
   };
 
-  constructor(private skillsService: SkillsService) {
+  constructor(private skillsService: SkillsService, private router: Router, private route: ActivatedRoute) {
   }
 
   ngOnInit() {
@@ -32,8 +34,8 @@ export class SkillCreateComponent implements OnInit {
 
   create(skillData: SkillData) {
     this.skillsService.createSkill(skillData).subscribe(
-      this.onSuccess,
-      this.onError
+      this.onSubmitSuccess,
+      this.onSubmitError
     );
   }
 }

@@ -21,7 +21,7 @@ export class SkillsService {
     return this.apiService.get<SkillOverview[]>('skills::index');
   }
 
-  public createSkill(data: SkillData): Observable<void> {
+  public createSkill(data: SkillData): Observable<Skill> {
     return this.apiService.post('skills::store', data);
   }
 
