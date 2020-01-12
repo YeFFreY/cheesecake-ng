@@ -38,7 +38,6 @@ export class SkillEditComponent implements OnInit {
 
   ngOnInit() {
     this.route.data.subscribe(({ resolvedData }: { resolvedData: DataResult<Skill> }) => {
-      console.log('got data: ', resolvedData);
       resolvedData
         .ifLeft(this.onError)
         .ifRight(this.onDataRetrieved);

@@ -76,7 +76,7 @@ describe('SkillEditComponent', () => {
     expect(navigateSpy).toHaveBeenCalledWith([ '..' ], { relativeTo: route });
   });
 
-  fit('should display error if route input data is error', () => {
+  it('should display error if route input data is error', () => {
     TestBed.overrideProvider(ActivatedRoute, {
       useValue: {
         data: of({ resolvedData: Left(serviceError) }),
