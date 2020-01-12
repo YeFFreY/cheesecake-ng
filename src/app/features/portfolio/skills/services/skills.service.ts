@@ -28,4 +28,8 @@ export class SkillsService {
   public fetchSkill(id: number) {
     return this.apiService.get<Skill>('skills::show', { skill: id });
   }
+
+  updateSkill(skill: Skill, data: SkillData) {
+    return this.apiService.put(skill, 'update', data);
+  }
 }

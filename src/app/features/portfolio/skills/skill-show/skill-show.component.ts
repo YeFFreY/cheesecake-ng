@@ -13,6 +13,7 @@ import { Skill } from '../../../../domain/skill.model';
       <div *ngIf="skill">
         <h2>{{skill.name}}</h2>
         <p>{{skill.description}}</p>
+        <a [routerLink]="['edit']">Edit</a>
       </div>
     </div>
   `,

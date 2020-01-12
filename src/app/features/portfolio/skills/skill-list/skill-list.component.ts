@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { DataResult, DataServiceError } from '../../../../../lib/services.utils';
+import { DataResult, DataServiceError } from '@lib/services.utils';
 import { SkillOverview } from '../services/skills.service';
 
 @Component({

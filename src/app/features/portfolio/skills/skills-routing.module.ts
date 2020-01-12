@@ -7,13 +7,15 @@ import { SkillListResolverService } from './services/skill-list-resolver.service
 import { SkillCreateComponent } from './skill-create/skill-create.component';
 import { SkillShowComponent } from './skill-show/skill-show.component';
 import { SkillResolverService } from './services/skill-resolver.service';
+import { SkillEditComponent } from './skill-edit/skill-edit.component';
 
 const routes: Routes = [
   {
     path: '', component: SkillsComponent, children: [
       { path: '', component: SkillListComponent, resolve: { resolvedData: SkillListResolverService } },
       { path: 'create', component: SkillCreateComponent },
-      { path: ':id', component: SkillShowComponent, resolve: { resolvedData: SkillResolverService } }
+      { path: ':id', component: SkillShowComponent, resolve: { resolvedData: SkillResolverService } },
+      { path: ':id/edit', component: SkillEditComponent, resolve: { resolvedData: SkillResolverService } }
     ]
   }
 ];

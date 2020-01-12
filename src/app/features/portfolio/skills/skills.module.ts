@@ -8,9 +8,10 @@ import { SkillsLazyModule } from './skills.lazy-module';
 import { SkillCreateComponent } from './skill-create/skill-create.component';
 import { SkillFormModule } from './components/skill-form/skill-form.module';
 import { SkillShowComponent } from './skill-show/skill-show.component';
+import { SkillEditComponent } from './skill-edit/skill-edit.component';
 
 @NgModule({
-  declarations: [ SkillsComponent, SkillListComponent, SkillCreateComponent, SkillShowComponent ],
+  declarations: [ SkillsComponent, SkillListComponent, SkillCreateComponent, SkillShowComponent, SkillEditComponent ],
   imports: [
     CommonModule,
     SkillsLazyModule,

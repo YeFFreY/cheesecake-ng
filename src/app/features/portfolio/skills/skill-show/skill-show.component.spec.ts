@@ -8,6 +8,7 @@ import { Skill } from '../../../../domain/skill.model';
 import * as faker from 'faker';
 import { Page } from '@testing/page.utils';
 import { invalidResourceIdError } from '@lib/services.utils';
+import { RouterTestingModule } from '@angular/router/testing';
 
 const skill: Skill = {
   id: faker.random.number(), name: faker.name.title(), description: faker.lorem.paragraph()
@@ -36,12 +37,14 @@ describe('SkillShowComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [ RouterTestingModule ],
       declarations: [ SkillShowComponent ],
       providers: [
         {
           provide: ActivatedRoute,
           useValue: {
-            data: of({ resolvedData: Right(skill) })
+            snapshot: {},
+            data: of({ resolvedData: Right(skill), params: { id: skill.id } })
           }
         }
       ]

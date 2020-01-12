@@ -7,6 +7,7 @@ import { unavailableServiceError } from '@lib/services.utils';
 import { SkillOverview } from '../services/skills.service';
 import * as faker from 'faker';
 import { Page } from '@testing/page.utils';
+import { RouterTestingModule } from '@angular/router/testing';
 
 const skills: SkillOverview[] = [
   { id: faker.random.number(), name: faker.name.title() },
@@ -36,12 +37,14 @@ describe('SkillListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [ RouterTestingModule ],
       declarations: [ SkillListComponent ],
       providers: [
         {
           provide: ActivatedRoute,
           useValue: {
-            data: of({ resolvedData: Right(skills) })
+            data: of({ resolvedData: Right(skills) }),
+            snapshot: {}
           }
         }
       ]
@@ -59,7 +62,8 @@ describe('SkillListComponent', () => {
   it('should create the component when the route data is a DataServiceError', () => {
     TestBed.overrideProvider(ActivatedRoute, {
       useValue: {
-        data: of({ resolvedData: Left(serviceError) })
+        data: of({ resolvedData: Left(serviceError) }),
+        snapshot: {}
       }
     });
     initComponent();
