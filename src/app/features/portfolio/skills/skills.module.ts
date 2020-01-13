@@ -9,11 +9,13 @@ import { SkillCreateComponent } from './skill-create/skill-create.component';
 import { SkillFormModule } from './components/skill-form/skill-form.module';
 import { SkillShowComponent } from './skill-show/skill-show.component';
 import { SkillEditComponent } from './skill-edit/skill-edit.component';
+import { SharedModule } from '../../../shared/shared.module';
 
 @NgModule({
   declarations: [ SkillsComponent, SkillListComponent, SkillCreateComponent, SkillShowComponent, SkillEditComponent ],
   imports: [
     CommonModule,
+    SharedModule,
     SkillsLazyModule,
     SkillFormModule,
     SkillsRoutingModule

@@ -93,6 +93,19 @@ export class ApiService {
   }
 
   /**
+   * Does the api index contains the given REL ?
+   * @param rel the rel to search for
+   */
+  hasRel(rel: string): Observable<boolean> {
+    return this.apiIndex$.pipe(
+      switchMap(apis => {
+        const link = apis[rel];
+        return of(!!link);
+      }),
+    );
+  }
+
+  /**
    * Parse link and replace potential placeholders using 'params"
    * @param link the link to parse
    * @param params the object with placeholder values
@@ -106,7 +119,7 @@ export class ApiService {
    * @param resource the resource to search link on.
    * @param rel the 'rel' value to select the correct url
    */
-  private static resourceLinkFor(resource: Resource, rel: string): string | null {
+  public static resourceLinkFor(resource: Resource, rel: string): string | null {
     if (!resource || !rel || !resource._links) {
       // no resource or rel given
       return null;

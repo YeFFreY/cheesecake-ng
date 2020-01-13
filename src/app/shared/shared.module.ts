@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ErrorModule } from './error/error.module';
+import { HateoasModule } from './hateoas/hateoas.module';
 
 /**
  * Imported in every feature module that needs some shared components.
@@ -15,11 +16,13 @@ import { ErrorModule } from './error/error.module';
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    ErrorModule
+    ErrorModule,
+    HateoasModule
   ],
   exports: [
     ReactiveFormsModule,
-    ErrorModule
+    ErrorModule,
+    HateoasModule
   ]
 })
 export class SharedModule {

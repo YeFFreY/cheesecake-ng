@@ -9,6 +9,8 @@ import * as faker from 'faker';
 import { Page } from '@testing/page.utils';
 import { invalidResourceIdError } from '@lib/services.utils';
 import { RouterTestingModule } from '@angular/router/testing';
+import { HateoasModule } from '../../../../shared/hateoas/hateoas.module';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 const skill: Skill = {
   id: faker.random.number(), name: faker.name.title(), description: faker.lorem.paragraph()
@@ -37,7 +39,9 @@ describe('SkillShowComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [ RouterTestingModule ],
+      imports: [ RouterTestingModule,
+        HateoasModule, HttpClientTestingModule // because of the cheeRel directive
+      ],
       declarations: [ SkillShowComponent ],
       providers: [
         {

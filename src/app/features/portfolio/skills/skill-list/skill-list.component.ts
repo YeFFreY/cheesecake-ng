@@ -7,7 +7,7 @@ import { SkillOverview } from '../services/skills.service';
   selector: 'chee-skill-list',
   template: `
     <div>
-      <a routerLink="create" routerLinkActive="active">create</a>
+      <a *cheeIfHasRel="'skills::store'" routerLink="create" routerLinkActive="active">create</a>
       <p *ngIf="error">error: {{error?.friendlyMessage}}</p>
       <div *ngIf="skills">
         <div *ngFor="let skill of skills" class="skill-item">
