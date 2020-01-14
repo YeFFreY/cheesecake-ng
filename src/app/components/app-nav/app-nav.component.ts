@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
   selector: 'chee-app-nav',
   template: `
     <nav>
+      <h2></h2>
       <a routerLink="portfolio" routerLinkActive="active">portfolio</a>
     </nav>
   `,
