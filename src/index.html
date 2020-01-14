@@ -7,10 +7,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
-<body class="bg-gray-200">
+<body class="bg-gray-100">
 <div id="app">
-  <nav class="bg-white shadow-md h-16 px-4 flex justify-between items-center">
-  </nav>
+  <header class="flex">
+    <div class="w-64 flex-shrink-0 px-4 py-3 bg-gray-800">
+      <h1 class="text-white text-lg">Cheesecake</h1>
+    </div>
+    <div class="flex-1 bg-gray-700"></div>
+    <div class="flex-shrink-0 px-4 py-3 bg-gray-700">
+      <button class="flex items-center">
+        <span class="text-sm font-medium text-white">Boubou Dou</span>
+        <img
+          class="ml-4 h-8 w-8 rounded-full object-cover"
+          src="https://placekitten.com/200/200" alt="you"/>
+      </button>
+    </div>
+  </header>
   <chee-root></chee-root>
 </div>
 </body>
