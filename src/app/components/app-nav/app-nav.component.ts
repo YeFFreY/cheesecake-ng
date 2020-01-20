@@ -3,19 +3,20 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'chee-app-nav',
   template: `
-    <nav class="flex flex-col h-full ">
+    <nav class="flex">
       <a routerLink="portfolio" routerLinkActive="active"
-         class="flex flex-col items-center px-2 py-4">
-        <i class="fas fa-book fa-2x fa-fw text-gray-700 mb-1"></i>
-        <span class="text-sm text-gray-600">Portfolio</span>
+         class="inline-block px-4 py-2 text-sm font-medium text-white rounded">
+        <i class="fas fa-book"></i>
+        <span class="ml-2">Portfolio</span>
       </a>
-      <a href="" class="flex flex-col items-center px-2 py-4">
-        <i class="far fa-calendar-alt fa-2x fa-fw text-gray-700 mb-1"></i>
-        <span class="text-sm text-gray-600">Agenda</span>
+      <a href=""
+         class="inline-block px-4 py-2 text-sm font-medium text-white rounded">
+        <i class="far fa-calendar-alt"></i>
+        <span class="ml-2">Agenda</span>
       </a>
     </nav>
   `,
-  styles: [ '.active { background-color: #edf2f7; }' ],
+  styles: [ '.active { background-color: #2d3748; }' ],
 })
 export class AppNavComponent implements OnInit {
 
