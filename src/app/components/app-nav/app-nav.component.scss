@@ -1,0 +1,7 @@
+.active {
+  color: #2d3748;
+
+  .nav-focus {
+    @apply bg-gray-200;
+  }
+}

@@ -3,7 +3,8 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'chee-portfolio',
   template: `
-    <div class="w-32 flex-shrink-0 bg-gray-100 border-r">
+    <div class="w-64 flex-shrink-0 bg-white pt-8 shadow-lg">
+      <h2 class="text-2xl text-gray-600 h-24 pl-4">Portfolio</h2>
       <nav class="flex flex-col h-full">
         <div>
           <a routerLink="skills" routerLinkActive="active"
@@ -30,7 +31,7 @@ import { Component, OnInit } from '@angular/core';
         </div>
       </nav>
     </div>
-    <div class="flex-1 bg-gray-200">
+    <div class="flex-1">
       <h2 class="pl-4">Portfolio</h2>
       <div class="pl-4">
         <p>

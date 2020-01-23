@@ -17,8 +17,11 @@
       "prefix": "chee",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-builders/custom-webpack:browser",
           "options": {
+            "customWebpackConfig": {
+              "path": "./webpack.config.dev.js"
+            },
             "outputPath": "dist/cheesecake-ng",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -36,6 +39,9 @@
           },
           "configurations": {
             "production": {
+              "customWebpackConfig": {
+                "path": "./webpack.config.prod.js"
+              },
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
@@ -67,15 +73,21 @@
           }
         },
         "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
+          "builder": "@angular-builders/custom-webpack:dev-server",
           "options": {
-            "browserTarget": "cheesecake-ng:build"
+            "browserTarget": "cheesecake-ng:build",
+            "customWebpackConfig": {
+              "path": "./webpack.config.dev.js"
+            }
           },
           "configurations": {
             "proxy-api": {
               "proxyConfig": "proxy-api.conf.json"
             },
             "production": {
+              "customWebpackConfig": {
+                "path": "./webpack.config.prod.js"
+              },
               "browserTarget": "cheesecake-ng:build:production"
             }
           }
