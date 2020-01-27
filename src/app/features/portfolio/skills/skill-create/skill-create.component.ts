@@ -8,7 +8,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   selector: 'chee-skill-create',
   template: `
     <div>
-      <h3>Create a new skill</h3>
+      <h3 class="text-xl text-gray-600 mb-8">Create a new skill</h3>
       <chee-skill-form (formSubmitted)="create($event)"></chee-skill-form>
     </div>
   `,

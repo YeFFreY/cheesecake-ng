@@ -3,49 +3,39 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'chee-portfolio',
   template: `
-    <div class="w-64 flex-shrink-0 bg-white pt-8 shadow-lg">
-      <h2 class="text-2xl text-gray-600 h-24 pl-4">Portfolio</h2>
-      <nav class="flex flex-col h-full">
+    <div class="w-16 md:w-64 flex-shrink-0 bg-white p-2 md:p-8 pt-4 shadow-r">
+      <h2 class="text-xs md:text-2xl text-gray-800 font-semibold h-20 flex items-center">Portfolio</h2>
+      <nav class="flex flex-col text-gray-600">
         <div>
           <a routerLink="skills" routerLinkActive="active"
-             class="py-4 block">
-            <div class="flex flex-col items-center justify-center ">
-              <i class="fas fa-brain fa-lg text-gray-700"></i>
-              <span class="mt-1 text-gray-600 font-semibold">Skills</span>
+             class="py-1 block">
+            <div class="flex items-center py-2 md:-ml-2 rounded-full">
+              <i class="fas fa-brain fa-lg pl-2 md:pr-4"></i>
+              <span class="font-semibold hidden md:inline">Skills</span>
             </div>
           </a>
           <a href=""
-             class="py-4 block">
-            <div class="flex flex-col items-center justify-center ">
-              <i class="fas fa-toolbox fa-lg text-gray-700"></i>
-              <span class="mt-1 text-gray-600 font-semibold">Assets</span>
+             class="py-1 block">
+            <div class="flex items-center py-2 md:-ml-2 rounded-full">
+              <i class="fas fa-toolbox fa-lg pl-2 md:pr-4"></i>
+              <span class="font-semibold hidden md:inline">Assets</span>
             </div>
           </a>
           <a href=""
-             class="py-4 block">
-            <div class="flex flex-col items-center justify-center ">
-              <i class="fas fa-child fa-lg text-gray-700"></i>
-              <span class="mt-1 text-gray-600 font-semibold">Activities</span>
+             class="py-1 block">
+            <div class="flex items-center py-2 md:-ml-2 rounded-full">
+              <i class="fas fa-child fa-lg pl-2 md:pr-4"></i>
+              <span class="font-semibold hidden md:inline">Activities</span>
             </div>
           </a>
         </div>
       </nav>
     </div>
-    <div class="flex-1">
-      <h2 class="pl-4">Portfolio</h2>
-      <div class="pl-4">
-        <p>
-          OK ON BOUGE LE MENU principal dans le header principal, c trop moche comme ça
-        </p>
-        <router-outlet></router-outlet>
-      </div>
+    <div class="flex-1 flex">
+      <router-outlet></router-outlet>
     </div>
   `,
   styleUrls: [ 'portfolio.component.scss' ],
-  // tslint:disable-next-line:no-host-metadata-property
-  host: {
-    class: 'flex-1 flex'
-  }
 })
 export class PortfolioComponent implements OnInit {
 

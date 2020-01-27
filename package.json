@@ -2,7 +2,6 @@
   "name": "cheesecake-ng",
   "version": "0.0.0",
   "scripts": {
-    "tailwind": "./node_modules/.bin/tailwind build ./src/tailwind-build.scss -c ./tailwind.config.js -o ./src/styles.scss",
     "ng": "ng",
     "start": "ng serve",
     "start-api": "ng serve --configuration=proxy-api",

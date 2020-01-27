@@ -1,17 +1,13 @@
+:host {
+
+}
+
 nav a {
-  border-bottom: 1px solid transparent;
-  border-top: 1px solid transparent;
-
-  & div {
-    border-left: 3px solid transparent;
-  }
-
   &.active {
-    border-bottom: 1px solid #e2e8f0;
-    border-top: 1px solid #e2e8f0;
+    @apply text-gray-700;
 
     & div {
-      border-left: 3px solid #4a5568;
+      @apply bg-gray-200;
     }
   }
 }

@@ -6,18 +6,31 @@ import { Skill } from '../../../../domain/skill.model';
 @Component({
   selector: 'chee-skill-show',
   template: `
-    <div>
-      <div *ngIf="error">
-        <p>{{error.friendlyMessage}}</p>
+    <div *ngIf="error">
+      <p>{{error.friendlyMessage}}</p>
+    </div>
+    <div *ngIf="skill" class=" flex-1 bg-white rounded p-4 shadow-sm">
+      <div class="flex mb-4">
+        <h3 class="flex-1 text-xl text-gray-800 border-b pb-4">{{skill.name}}</h3>
+
+        <a class="px-4 border rounded-full flex justify-center items-center
+          h-8 text-gray-600 text-sm font-medium hover:bg-white hover:shadow-md hover:border-none"
+           *cheeIfResourceHasRel="{ resource: skill, rel: 'update'}" [routerLink]="['edit']"
+           routerLinkActive="active">
+          <i class="fas fa-plus pr-2"></i>
+          <span>Edit</span>
+        </a>
+
       </div>
-      <div *ngIf="skill">
-        <h2>{{skill.name}}</h2>
-        <p>{{skill.description}}</p>
-        <a *cheeIfResourceHasRel="{ resource: skill, rel: 'update'}" [routerLink]="['edit']">Edit</a>
-      </div>
+      <p class="text-gray-600">{{skill.description}}</p>
     </div>
   `,
-  styles: []
+  styles: [],
+  // tslint:disable-next-line:no-host-metadata-property
+  host: {
+    class: 'flex flex-1'
+  }
+
 })
 export class SkillShowComponent implements OnInit {
   public error: DataServiceError | null = null;

@@ -7,6 +7,7 @@ import { Skill, SkillData } from '../../../../domain/skill.model';
 
 export interface SkillOverview extends Resource {
   name: string;
+  description: string;
 }
 
 @Injectable({
