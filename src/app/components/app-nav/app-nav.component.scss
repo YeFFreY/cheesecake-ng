@@ -4,9 +4,9 @@ $bg-focus: #edf2f7;
 
 :host {
   background-color: white;
-  padding-top: 2rem;
   width: 4rem;
   @media (min-width: 640px) {
+    padding-top: 2rem;
     width: 8rem;
   }
 

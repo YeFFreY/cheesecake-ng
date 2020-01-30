@@ -1,13 +1,84 @@
-:host {
+$text-primary: #2d3748;
+$text-secondary: #718096;
+$bg-focus: #edf2f7;
 
+:host {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  @media (min-width: 640px) {
+    flex-direction: row;
+  }
 }
 
-nav a {
-  &.active {
-    @apply text-gray-700;
+.sidebar {
+  background-color: white;
+  @media (min-width: 640px) {
+    box-shadow: 5px -15px 15px 0 rgba(0, 0, 0, 0.05);
+    flex: 0 0 16rem;
+    padding-top: 2rem;
+  }
 
-    & div {
-      @apply bg-gray-200;
+  &__header {
+    align-items: center;
+    color: $text-primary;
+    display: flex;
+    font-size: 1rem;
+    font-weight: 600;
+    height: 2rem;
+    margin: 0 1rem;
+    @media (min-width: 640px) {
+      font-size: 1.5rem;
+      height: 5rem;
+    }
+  }
+
+  nav {
+    display: flex;
+    @media (min-width: 640px) {
+      flex-direction: column;
+    }
+
+    a {
+      color: $text-secondary;
+      display: flex;
+      flex: 1;
+      font-size: 0.875rem;
+      font-weight: 600;
+      margin: 0.5rem;
+      @media (min-width: 640px) {
+        flex-direction: column;
+        font-size: 1rem;
+        margin: 0 1rem;
+      }
+
+      &.active {
+        color: $text-primary;
+
+        .ring {
+          background-color: $bg-focus;
+        }
+      }
+
+      .ring {
+        align-items: center;
+        border-radius: 1rem;
+        display: flex;
+        flex: 1;
+        justify-content: center;
+        padding: 0.5rem 1rem;
+        @media (min-width: 640px) {
+          display: block;
+
+          i {
+            margin-right: 1rem;
+          }
+        }
+
+        i {
+          margin-right: 0.5rem;
+        }
+      }
     }
   }
 }

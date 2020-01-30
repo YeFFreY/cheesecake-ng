@@ -3,32 +3,27 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'chee-portfolio',
   template: `
-    <div class="w-16 md:w-64 flex-shrink-0 bg-white p-2 md:p-8 pt-4 shadow-r">
-      <h2 class="text-xs md:text-2xl text-gray-800 font-semibold h-20 flex items-center">Portfolio</h2>
-      <nav class="flex flex-col text-gray-600">
-        <div>
-          <a routerLink="skills" routerLinkActive="active"
-             class="py-1 block">
-            <div class="flex items-center py-2 md:-ml-2 rounded-full">
-              <i class="fas fa-brain fa-lg pl-2 md:pr-4"></i>
-              <span class="font-semibold hidden md:inline">Skills</span>
-            </div>
-          </a>
-          <a href=""
-             class="py-1 block">
-            <div class="flex items-center py-2 md:-ml-2 rounded-full">
-              <i class="fas fa-toolbox fa-lg pl-2 md:pr-4"></i>
-              <span class="font-semibold hidden md:inline">Assets</span>
-            </div>
-          </a>
-          <a href=""
-             class="py-1 block">
-            <div class="flex items-center py-2 md:-ml-2 rounded-full">
-              <i class="fas fa-child fa-lg pl-2 md:pr-4"></i>
-              <span class="font-semibold hidden md:inline">Activities</span>
-            </div>
-          </a>
-        </div>
+    <div class="sidebar">
+      <h2 class="sidebar__header">Portfolio</h2>
+      <nav>
+        <a routerLink="skills" routerLinkActive="active">
+          <div class="ring">
+            <i class="fas fa-brain"></i>
+            <span>Skills</span>
+          </div>
+        </a>
+        <a href="">
+          <div class="ring">
+            <i class="fas fa-toolbox"></i>
+            <span>Assets</span>
+          </div>
+        </a>
+        <a href="">
+          <div class="ring">
+            <i class="fas fa-child"></i>
+            <span>Activities</span>
+          </div>
+        </a>
       </nav>
     </div>
     <div class="flex-1 flex">
