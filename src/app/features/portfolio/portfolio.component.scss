@@ -42,11 +42,11 @@ $bg-focus: #edf2f7;
     a {
       color: $text-secondary;
       display: flex;
-      flex: 1;
       font-size: 0.875rem;
       font-weight: 600;
       margin: 0.5rem;
       @media (min-width: 640px) {
+        flex: 1 1 3rem;
         flex-direction: column;
         font-size: 1rem;
         margin: 0 1rem;
@@ -65,10 +65,8 @@ $bg-focus: #edf2f7;
         border-radius: 1rem;
         display: flex;
         flex: 1;
-        justify-content: center;
-        padding: 0.5rem 1rem;
+        padding: 0 1rem;
         @media (min-width: 640px) {
-          display: block;
 
           i {
             margin-right: 1rem;

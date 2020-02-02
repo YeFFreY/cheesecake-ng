@@ -1,0 +1,23 @@
+$text-primary: #2d3748;
+
+:host {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  @media (min-width: 640px) {
+    padding-top: 2rem;
+  }
+}
+
+.header {
+  align-items: center;
+  color: $text-primary;
+  display: flex;
+  font-weight: 600;
+  height: 2rem;
+  margin: 0 1rem;
+  @media (min-width: 640px) {
+    font-size: 1.5rem;
+    height: 5rem;
+  }
+}

@@ -26,9 +26,7 @@ import { Component, OnInit } from '@angular/core';
         </a>
       </nav>
     </div>
-    <div class="flex-1 flex">
-      <router-outlet></router-outlet>
-    </div>
+    <router-outlet></router-outlet>
   `,
   styleUrls: [ 'portfolio.component.scss' ],
 })
